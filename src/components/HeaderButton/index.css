@@ -1,0 +1,10 @@
+.header-button {
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #FFF9E6;
+}

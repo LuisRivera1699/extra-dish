@@ -1,0 +1,12 @@
+.dish-detail-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.dish-detail-container > div {
+    width: 50%;
+}
+
+.dish-detail-container > div > h1 {
+    margin-bottom: 40px;
+}

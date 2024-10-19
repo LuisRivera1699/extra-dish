@@ -1,0 +1,16 @@
+.dish-card {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    width: 370px;
+}
+
+.dish-card > img {
+    width: 103px;
+    height: 173px;
+    object-fit: cover;
+    border-radius: 10px;
+}
