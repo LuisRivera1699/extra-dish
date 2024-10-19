@@ -17,10 +17,9 @@ import DetailContainer from '../DetailContainer';
 import InputContainer from '../InputContainer';
 import ViewCookerCalifications from '../ViewCookerCalifications';
 
-const DashboardContainer = ({ children, wrappedAddress, authType, authTypeOnClick }) => {
+const DashboardContainer = ({ children, wrappedAddress, authType, authTypeOnClick, selectedTab, setSelectedTab }) => {
     return (
         <div className="dashboard-container">
-            {children}
             <DashboardHeader>
                 <Header className="header-top">
                     <HeaderButton text={wrappedAddress} />
@@ -28,12 +27,13 @@ const DashboardContainer = ({ children, wrappedAddress, authType, authTypeOnClic
                     <HeaderButton text="I'm hungry" isActive={authType === 1} onClick={() => authTypeOnClick(1)}/>
                 </Header>
                 <Header className="header-bottom">
-                    <HeaderButton text={authType === 0 ? "My dishes" : "Dishes"} />
-                    <HeaderButton text={authType === 0 ? "Requests" : "My requests"} />
-                    {authType === 0 && <HeaderButton text="Califications" />}
+                    <HeaderButton isActive={selectedTab === 0} text={authType === 0 ? "My dishes" : "Dishes"} onClick={() => setSelectedTab(0)}/>
+                    <HeaderButton isActive={selectedTab === 1} text={authType === 0 ? "Requests" : "My requests"} onClick={() => setSelectedTab(1)}/>
+                    {authType === 0 && <HeaderButton isActive={selectedTab === 2} text="Califications" onClick={() => setSelectedTab(2)}/>}
                 </Header>
             </DashboardHeader>
             <DashboardContent>
+                {children}
                 {/* <DishesContainer>
                     <DishCard 
                         imgSrc="https://origin.cronosmedia.glr.pe/large/2024/05/02/lg_6633bb8bed7fed5a801a8bb0.jpg" 
