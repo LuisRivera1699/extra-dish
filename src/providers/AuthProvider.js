@@ -13,6 +13,55 @@ const AuthProvider = ({ children }) => {
     const [ethPrice, setEthPrice] = useState(0);
     const navigate = useNavigate();
 
+    // Parámetros de la Base Sepolia Testnet
+    const baseSepoliaTestnet = {
+        chainId: '0x14a34',
+        chainName: 'Base Sepolia Testnet',
+        nativeCurrency: {
+            name: 'ETH',
+            symbol: 'ETH',
+            decimals: 18,
+        },
+        rpcUrls: ['https://sepolia.base.org'],
+        blockExplorerUrls: ['https://sepolia.basescan.org']
+    };
+
+    // Función para solicitar el cambio de red a Base Sepolia Testnet
+    async function switchToBaseSepoliaTestnet() {
+        if (window.ethereum) {
+            try {
+                // Verificar la red actual
+                const currentChainId = await window.ethereum.request({ method: 'eth_chainId' });
+                // Si no está en Base Sepolia Testnet
+                if (currentChainId !== baseSepoliaTestnet.chainId) {
+                    // Intentar cambiar a Base Sepolia Testnet
+                    try {
+                        await window.ethereum.request({
+                            method: 'wallet_switchEthereumChain',
+                            params: [{ chainId: baseSepoliaTestnet.chainId }],
+                        });
+                    } catch (switchError) {
+                        // Si la red no está en MetaMask, solicitar agregarla
+                        if (switchError.code === 4902) {
+                            try {
+                                await window.ethereum.request({
+                                    method: 'wallet_addEthereumChain',
+                                    params: [baseSepoliaTestnet],
+                                });
+                            } catch (addError) {
+                                console.error('Error adding Base Sepolia Testnet:', addError);
+                            }
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error switching network:', error);
+            }
+        } else {
+            console.error('MetaMask is not installed.');
+        }
+    }
+
     const getEthPrice = async () => {
         const price = await fetchEthPrice();
         setEthPrice(price);
@@ -21,6 +70,7 @@ const AuthProvider = ({ children }) => {
     const connectWallet = async (type) => {
         if (typeof window.ethereum !== 'undefined') {
             try {
+                await switchToBaseSepoliaTestnet();
                 const provider = new ethers.BrowserProvider(window.ethereum);
                 await provider.send("eth_requestAccounts", []);
                 const signer = provider.getSigner();
@@ -66,6 +116,7 @@ const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
+        switchToBaseSepoliaTestnet();
         checkIfWalletIsConnected();
         getEthPrice();
     }, []);
