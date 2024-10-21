@@ -1,8 +1,8 @@
 import './index.css';
 
-const ViewCookerCalifications = () => {
+const ViewCookerCalifications = ({ handleClick }) => {
     return (
-        <p className="view-cooker-califications">View cooker califications</p>
+        <p className="view-cooker-califications" onClick={handleClick}>View cooker califications</p>
     )
 }
 

@@ -1,10 +1,10 @@
 import './index.css';
 
-const InputContainer = ({ type, placeholder, label }) => {
+const InputContainer = ({ type, placeholder, label, value, onChange, disabled }) => {
     return (
         <div className="input-container">
             <label>{label}</label>
-            <input type={type} placeholder={placeholder} />
+            <input type={type} disabled={disabled} placeholder={placeholder} value={value} onChange={onChange} />
         </div>
     )
 }

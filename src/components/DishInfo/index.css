@@ -3,3 +3,15 @@
     flex-direction: column;
     gap: 10px;
 }
+
+.PENDING {
+    color: #3498DB;
+}
+
+.REQUESTED {
+    color: #F39C12;
+}
+
+.RECEIVED {
+    color: #2ECC71;
+}

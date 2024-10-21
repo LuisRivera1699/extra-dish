@@ -1,0 +1,590 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "SERVICE_FEE",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "addressDishes",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			}
+		],
+		"name": "cancelRequest",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "pickUpAddress",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "image",
+				"type": "string"
+			}
+		],
+		"name": "createDish",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "dishCounter",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "dishId",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "pickUpAddress",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "image",
+				"type": "string"
+			},
+			{
+				"internalType": "address payable",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "status",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address payable",
+				"name": "requester",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "requestDescription",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "rateDescription",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "getAddressRates",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "pickUpAddress",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "image",
+						"type": "string"
+					},
+					{
+						"internalType": "address payable",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "status",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "requester",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "requestDescription",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "rateDescription",
+						"type": "string"
+					}
+				],
+				"internalType": "struct Dish[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getMyDishes",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "pickUpAddress",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "image",
+						"type": "string"
+					},
+					{
+						"internalType": "address payable",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "status",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "requester",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "requestDescription",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "rateDescription",
+						"type": "string"
+					}
+				],
+				"internalType": "struct Dish[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getMyRequestsAsABuyer",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "pickUpAddress",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "image",
+						"type": "string"
+					},
+					{
+						"internalType": "address payable",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "status",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "requester",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "requestDescription",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "rateDescription",
+						"type": "string"
+					}
+				],
+				"internalType": "struct Dish[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getMyRequestsAsASeller",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "pickUpAddress",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "image",
+						"type": "string"
+					},
+					{
+						"internalType": "address payable",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "status",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "requester",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "requestDescription",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "rateDescription",
+						"type": "string"
+					}
+				],
+				"internalType": "struct Dish[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getPendingDishes",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "pickUpAddress",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "image",
+						"type": "string"
+					},
+					{
+						"internalType": "address payable",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "status",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "requester",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "requestDescription",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "rateDescription",
+						"type": "string"
+					}
+				],
+				"internalType": "struct Dish[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "rateDescription",
+				"type": "string"
+			}
+		],
+		"name": "rateDish",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			}
+		],
+		"name": "received",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "requestCounter",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "requestDescription",
+				"type": "string"
+			}
+		],
+		"name": "requestDish",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	}
+]

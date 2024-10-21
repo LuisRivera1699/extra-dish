@@ -1,24 +1,21 @@
 import DashboardContent from '../../components/DashboardContent';
+import DishesContainer from '../../components/DishesContainer';
 import DishCard from '../../components/DishCard';
 import DishInfo from '../../components/DishInfo';
-import DashboardButtonsContainer from '../../components/DashboardButtonsContainer';
-import Button from '../../components/Button';
-import DishesContainer from '../../components/DishesContainer';
 import { useState, useEffect } from 'react';
-import getMyDishes from '../../utils/web3/GetMyDishes';
+import getPendingDishes from '../../utils/web3/GetPendingDishes';
 import { ethers } from 'ethers';
 
-const MyDishesView = ({ setSelectedTab, ethPrice }) => {
+const DishesView = ({ setSelectedTab, setDish, ethPrice }) => {
 
     const [dishes, setDishes] = useState([]);
 
     const formatPrice = (price) => {
-        console.log(price);
         return ethers.formatEther(price);
     }
 
     useEffect(() => {
-        getMyDishes().then(setDishes);
+        getPendingDishes().then(setDishes);
     }, []);
 
     return (
@@ -26,9 +23,12 @@ const MyDishesView = ({ setSelectedTab, ethPrice }) => {
             <DishesContainer>
                 {
                     dishes.length > 0 ? dishes.map((dish, index) => (
-                        console.log(dish),
                         <DishCard
                             imgSrc={`https://${dish[4]}`}
+                            onClick={() => {
+                                setDish(dish);
+                                setSelectedTab(2);
+                            }}
                         >
                             <DishInfo
                                 dishName={dish[0]}
@@ -41,11 +41,8 @@ const MyDishesView = ({ setSelectedTab, ethPrice }) => {
                     )) : <p>No dishes found.</p>
                 }
             </DishesContainer>
-            <DashboardButtonsContainer>
-                <Button buttonText="Create new dish" type="blue" onClick={() => setSelectedTab(3)} />
-            </DashboardButtonsContainer>
         </DashboardContent>
-    )
-}
+    );
+};
 
-export default MyDishesView;
+export default DishesView;

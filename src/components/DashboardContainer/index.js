@@ -2,39 +2,26 @@ import './index.css';
 import HeaderButton from '../HeaderButton';
 import Header from '../Header';
 import DashboardHeader from '../DashboardHeader';
-import DashboardContent from '../DashboardContent';
-import DishesContainer from '../DishesContainer';
-import DishCard from '../DishCard';
-import DishInfo from '../DishInfo';
-import Button from '../Button';
-import ListContainer from '../ListContainer';
-import RequestItemContainer from '../RequestItemContainer';
-import BuyerInfo from '../BuyerInfo';
-import ItemButtonsContainer from '../ItemButtonsContainer';
-import DashboardButtonsContainer from '../DashboardButtonsContainer';
-import DishDetailContainer from '../DishDetailContainer';
-import DetailContainer from '../DetailContainer';
-import InputContainer from '../InputContainer';
-import ViewCookerCalifications from '../ViewCookerCalifications';
 
-const DashboardContainer = ({ children, wrappedAddress, authType, authTypeOnClick, selectedTab, setSelectedTab }) => {
+const DashboardContainer = ({ children, wrappedAddress, authType, authTypeOnClick, selectedTab, setSelectedTab, modalView }) => {
     return (
         <div className="dashboard-container">
             <DashboardHeader>
                 <Header className="header-top">
                     <HeaderButton text={wrappedAddress} />
-                    <HeaderButton text="I have an extra dish" isActive={authType === 0} onClick={() => authTypeOnClick(0)}/>
-                    <HeaderButton text="I'm hungry" isActive={authType === 1} onClick={() => authTypeOnClick(1)}/>
+                    <HeaderButton text="I have an extra dish" isActive={authType === 0} onClick={() => authTypeOnClick(0)} />
+                    <HeaderButton text="I'm hungry" isActive={authType === 1} onClick={() => authTypeOnClick(1)} />
                 </Header>
                 <Header className="header-bottom">
-                    <HeaderButton isActive={selectedTab === 0} text={authType === 0 ? "My dishes" : "Dishes"} onClick={() => setSelectedTab(0)}/>
-                    <HeaderButton isActive={selectedTab === 1} text={authType === 0 ? "Requests" : "My requests"} onClick={() => setSelectedTab(1)}/>
-                    {authType === 0 && <HeaderButton isActive={selectedTab === 2} text="Califications" onClick={() => setSelectedTab(2)}/>}
+                    <HeaderButton isActive={selectedTab === 0} text={authType === 0 ? "My dishes" : "Dishes"} onClick={() => setSelectedTab(0)} />
+                    <HeaderButton isActive={selectedTab === 1} text={authType === 0 ? "Requests" : "My requests"} onClick={() => setSelectedTab(1)} />
+                    {authType === 0 && <HeaderButton isActive={selectedTab === 2} text="Califications" onClick={() => setSelectedTab(2)} />}
                 </Header>
             </DashboardHeader>
-            <DashboardContent>
-                {children}
-                {/* <DishesContainer>
+            {children}
+            {/* <DashboardContent> */}
+
+            {/* <DishesContainer>
                     <DishCard 
                         imgSrc="https://origin.cronosmedia.glr.pe/large/2024/05/02/lg_6633bb8bed7fed5a801a8bb0.jpg" 
                     >
@@ -47,7 +34,7 @@ const DashboardContainer = ({ children, wrappedAddress, authType, authTypeOnClic
                         />
                     </DishCard>    
                 </DishesContainer> */}
-                {/* <ListContainer>
+            {/* <ListContainer>
                     <RequestItemContainer>
                         <DishInfo
                             dishName="Tallarines verdes"
@@ -66,7 +53,7 @@ const DashboardContainer = ({ children, wrappedAddress, authType, authTypeOnClic
                         </ItemButtonsContainer>
                     </RequestItemContainer>
                 </ListContainer> */}
-                {/* <DishDetailContainer>
+            {/* <DishDetailContainer>
                     <DetailContainer>
                         <h1>Create new dish</h1>
                         <InputContainer type="text" placeholder="Write your dish name..." label="Name" />
@@ -92,11 +79,12 @@ const DashboardContainer = ({ children, wrappedAddress, authType, authTypeOnClic
                     </DetailContainer>
                 </DishDetailContainer> */}
 
-                {/* <DashboardButtonsContainer>
+            {/* <DashboardButtonsContainer>
                     <Button buttonText="Go back" type="orange" />
                     <Button buttonText="Create dish" type="blue" />
                 </DashboardButtonsContainer> */}
-            </DashboardContent>
+            {/* </DashboardContent> */}
+            {modalView}
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ethers} from "ethers";
+import { ethers } from "ethers";
+import fetchEthPrice from "../utils/functions/fetchEthPrice";
 
 export const AuthContext = createContext();
 
@@ -9,7 +10,13 @@ const AuthProvider = ({ children }) => {
     const [walletAddress, setWalletAddress] = useState(null);
     const [authType, setAuthType] = useState(1);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [ethPrice, setEthPrice] = useState(0);
     const navigate = useNavigate();
+
+    const getEthPrice = async () => {
+        const price = await fetchEthPrice();
+        setEthPrice(price);
+    }
 
     const connectWallet = async (type) => {
         if (typeof window.ethereum !== 'undefined') {
@@ -60,10 +67,11 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         checkIfWalletIsConnected();
+        getEthPrice();
     }, []);
 
     return (
-        <AuthContext.Provider value={{ walletAddress, authType, isAuthenticated, connectWallet, setAuthType }}>
+        <AuthContext.Provider value={{ walletAddress, authType, isAuthenticated, connectWallet, setAuthType, ethPrice }}>
             {children}
         </AuthContext.Provider>
     )
